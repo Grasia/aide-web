@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+
+<title>{{ page.title }}</title>
+
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+<link href="{{ site.url }}/css/style.css" rel="stylesheet" />
+<link href="{{ site.url }}/css/pygments/default.css" rel="stylesheet" />
+</head>
+
+<body>
+<input id="menu-toggle" class="menu-toggle" type="checkbox">
+<nav>
+	<div class="menu">
+	<ul>{% assign group = "main_menu" %} {% include pages_list %}</ul>
+	</div>
+</nav>
+<section id="content">
+  <div class="top-bar">
+  <label for="menu-toggle" id="toggle">≡ <span>Menu</span></label> 
+  </div> 
+<!-- End Header and Nav -->
+
+  <div class="hero">
+	<div id="logo">
+<center>
+		<h1>
+			<a href="{{ site.url }}"><span>A</span>mbient <span>I</span>ntelligence <span>D</span>evelopment <span>E</span>nvironment</a>
+		</h1>
+</center>
+
+	</div>
+
+
+
+	<div id="banner">
+	<img src="{{ site.url }}/img/logo.png"
+			alt="Main image of the website."  width="70%" align="middle"/>
+
+
+		</div>
+
+  </div>
+
+  <div class="full">
+<p/>
+	{{ content }}
+  </div>
+
+<div class="full">
+    {% include footer %} 
+	{% include piwik_script %}
+</div>
+          
+       
+</body>
+</html>
+

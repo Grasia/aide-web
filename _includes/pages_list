@@ -1,0 +1,10 @@
+{% sorted_for node in site.pages sort_by:position %}
+	{% if group == null or group == node.group %}
+    {% if page.url == node.url %}
+      <li class="current_page_item"><a href="{{ site.url }}{{node.url}}" class="active">{{node.title}}</a></li>
+    {% else %}
+      <li><a href="{{ site.url }}{{node.url}}">{{node.title}}</a></li>
+    {% endif %}
+	{% endif %}
+{% endsorted_for %}
+

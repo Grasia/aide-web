@@ -1,0 +1,26 @@
+<footer>
+<div>
+  <div class="footer" style="float:left">
+	<p align="center">© 2012. All Rights Reserved.&nbsp; All the content of this page is licensed under the CC By-SA<br>
+	<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/es/"><img src="http://i.creativecommons.org/l/by-sa/3.0/es/80x15.png" alt="(cc) BY-SA icon" style="border-width: 0pt;"></a><br/>
+	<span xmlns:dc="http://purl.org/dc/elements/1.1/" href="http://purl.org/dc/dcmitype/Text" property="dc:title" rel="dc:type">SociAAL</span> 
+	is licensed 		under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/es/">Creative Commons Attribution-Share Alike 3.0 Spain License</a>
+<br>
+Logo from <a href="https://openclipart.org/user-detail/johnny_automatic">Johny Automatic</a>
+
+</p>
+    <!-- .span2 -->
+    <!-- %a.pull-right{:href => "http://flow.mixpanel.com/f/partner"} -->
+    <!-- %img{:alt => "Real Time Web Analytics", :src => "http://mixpanel.com/site_media/images/partner/badge_blue.
+png"} -->
+  </div>
+
+<div style="float:right">
+<img src="{{ site.url }}/img/gobspain.png" height="70" width="266"
+			alt="Main image of the website."  />
+</div>
+<div class="spacer" style="clear: both;"></div>
+</div>
+
+</footer>
+<!-- end #footer -->

@@ -1,0 +1,7 @@
+Para hacer pruebas en máquina local cambiar url en _config.yml.
+Cambiar:
+port:        80
+url:         http://ingenias.fdi.ucm.es/sociaal
+por:
+port:        4000
+url:         http://localhost:4000

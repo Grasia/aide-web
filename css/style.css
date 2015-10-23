@@ -228,7 +228,7 @@ nav ul ul li a:hover {
 
 #content {background: #f7fcff; }
 .full{padding:0px 30px 20px 30px;margin: 0 auto 0 auto;max-width:60em;}
-.hero {margin: 100px 30px 20px 30px; max-width:70em;background: white;}
+.hero {margin: 100px 30px 20px 30px; max-width:70em;background: white;padding:20px}
 }
 
 #banner {position:relative;}
@@ -240,7 +240,7 @@ nav ul ul li a:hover {
 .menu-toggle {display: none;}
 #content {background: white; }
 .full{padding:0px 30px 20px 30px;margin: 0 auto 0 auto;max-width:60em;}
-.hero {padding: 10px 30px 20px 30px; margin: 0 auto 0 auto;max-width:60em;background: #FFFFEB;}
+.hero {padding: 40px 30px 20px 30px; margin: 0 auto 0 auto;max-width:60em;background: #FFFFEB;}
 
 
 
@@ -315,17 +315,12 @@ a {
 
 a:hover {
 }
-.hero h1{ word-break:break-word;line-height:1em; letter-spacing: -0.02em; break-inside: avoid-column; -webkit-column-break-inside: avoid;position:relative}
-.img{ width: 100%;}
+.hero h1{ word-break:break-word;line-height:1em; letter-spacing: -0.02em; break-inside: avoid-column; -webkit-column-break-inside: avoid;position:relative;}
 
-.hero {
-   -webkit-column-count: 2;
-      -moz-column-count: 2;
-           column-count: 2;
-
-   -webkit-column-gap: 20px;
-      -moz-column-gap: 20px;
-           column-gap: 20px;
+img{ 
+	
+	display: block;
+	margin: 0 auto;
 }
 
 
@@ -339,9 +334,16 @@ nav {
 	overflow: hidden;
 	display: block;  
 	padding:0px 30px 0px 30px;
-	margin: 0 auto 0 auto;
+	left:25%;
+	right:25%;
+	top:0;
 	max-width:60em;
 	height: 55px;
+	position: fixed;
+	z-index:999;
+	background: white;
+	text-align:middle;
+	border-color:black;
 }
 nav ul {
 	margin: 0;

@@ -20,7 +20,10 @@ All the software developed for **AIDE** is licenses under [GPL v3](http://www.gn
 * TOC
 {:toc}
 
+<a name="basic"/>
+
 # Basic install
+
 
 To use **AIDE**, there is a basic set of elements you should have installed in the computer:
 
@@ -84,6 +87,8 @@ ant: No such file or directory
 {% endhighlight %}
 
 Now, to try out the **AIDE** specific software, a proper install of the PHAT framework plus Android SDK will be needed.
+
+<a name="basicami"/>
 
 # Basic install for basic AmI systems
 

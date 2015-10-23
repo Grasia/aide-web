@@ -6,12 +6,14 @@ position: 5
 ---
 Developing for **AIDE** requires some training. It is a framework thought to be used by teams of developers. Therefore it is expected to do some training. Experience with Maven is a must. Readers will find after a while that Maven solves elegantly the combination of different technologies that requires **AIDE**. For a quickstart that shows the **AIDE** potential, readers are invited to check the quickstart section. A more thorough introduction is introduced afterwards.
 
+**IMPORTANT INFORMATION: ALL THE HINTS GIVEN IN THIS PAGE HAVE BEEN CHECKED WITH THE LATEST [sample-ami-development](https://github.com/Grasia/sample-ami-development) PROJECT VERSION IN GITHUB**
+
 * TOC
 {:toc}
 
-#QuickStart for an **AIDE** demo
+#QuickStart for a complete **AIDE** demo
 
-It is assumed that the [software](/software) section has been already been read and followed. Before anything, please, make sure every requirement is met. 
+It is assumed that the [software](/software) section has been already been read and followed. Before anything, please, make sure every requirement is met. Needed software is the [Basic install](/software#basic) plus the [Basic install for AmI systems](/software#basicami).
 
 Get the sample project from [https://github.com/Grasia/sample-ami-development](https://github.com/Grasia/sample-ami-development) by downlading this [zip](https://github.com/Grasia/sample-ami-development/archive/master.zip) or using git with
 
@@ -90,6 +92,44 @@ The tutorial has four exercises:
 
 Inside of each exercise, you will find a pdf with instructions and solutions to the most relevant exercises. The exercise is thought to start from the code stored in the "initialX" folder, where X is 0,1,2,or 3, depending on the exercise. Solutions to the exercise are in the folders "solexXX", where XX is 0A, 0B,1B,1C...
 
+### Defining the Ambient Intelligence Deployment
+
+In the development of the Ambient Intelligence solution, the modeling specification includes information about the role of the Android devices. Android devices in the simulation can be attached to a user's body or to the furniture. The developer chooses which one is the case. Each simulation scenario can have a different layout of the devices, so the developer can test which one is running better or if there are differences with the allocation. Current version does not permit an easy definition of the 
+physical features of the device, unless the developer has knowledge of how JMonkey development environment works. Anyway, early testing will be sufficient with just accomodating the AmI deployment to a few pre-arranged locations. They are labelled, so the developer can more easily check out available positions. 
+
+Before attaching devices to positions in the house, a house needs to be selected, first. Available house models are  **House3room2bath** and **BrickHouse60m**. They can be chosen within the simulation definition through the *WorldInitialization* entities, just like:
+
+<img src="/img/houseselection.png" witdh="40%"  align="middle"/>
+
+Withing a house model, there are different positions available. To check the positions that can be used, type the following in the console 
+
+{% highlight console %}
+$ mvn exec:java -Dexec.mainClass="phat.devices.commands.tests.ShowAllObjectIdsTest" \
+-Dexec.args="BrickHouse60m"
+{% endhighlight %}
+
+or 
+
+{% highlight console %}
+$ mvn exec:java -Dexec.mainClass="phat.devices.commands.tests.ShowAllObjectIdsTest" \
+ -Dexec.args="House3room2bath"
+{% endhighlight %}
+
+The house model will appear similar to the image:
+
+<img src="/img/availablepos.png" witdh="40%"  align="middle"/>
+
+In the deployment scenario, you can choose the house model and the allocation of the device, which is one of P1 to PX.
+
+<img src="/img/sampleposassociation.png" align="middle"/>
+
+Attachment to a position in the body of the patient is easier:
+
+<img src="/img/partofbodyselection.png" witdh="40%"  align="middle"/>
+
+As a hint, you may have different prearranged positions in your model and connect them to the device if you are not willing to really have separate scenarios and just want to quick test anything. Another alternative is duplicating the simulation diagram content. If you have a diagram that has to be duplicatedcreating another simulation diagram, select all entities of 
+
+
 ## Android development for **AIDE**
 
 The Android software development produces a number of apk files which are to be deployed into the different Android devices. The modeling specification indicates which apks are installed in to which device and where is that device in the physical environment. Despite this binding with the modeling part, the Android development is actually independent. 
@@ -108,7 +148,7 @@ Adapted elements from the hardware include: the microphone, the accelerometer, t
 
 - Accelerometers with **sim.android.SensorManagerWrapper**. It must be obtained within the Android activity, since a reference to the activity is needed to determine the real objects. The  **sim.android.SensorManagerWrapper** instance will replicate the elements of its equivalent **android.hardware.SensorManager** so that its use is transparent. There is an example of use at [https://github.com/Grasia/sample-ami-development/tree/master/sample-android-devices/bodyfalldetection](https://github.com/Grasia/sample-ami-development/tree/master/sample-android-devices/bodyfalldetection), but readers are invited to download the full example to prevent compilation mistakes.  
 
-{% highlight java %}
+{% highlight java linenos %}
 public class BodyPositionMonitoring extends Activity implements SensorEventListener {
 
     private boolean mInitialized;
@@ -143,7 +183,7 @@ public class BodyPositionMonitoring extends Activity implements SensorEventListe
 
 - Microphone input with **sim.android.AudioRecordWrapper**. Some constants and static methods have been included to replicate better the internals of **android.media.AudioRecord**. As in previous cases, instances of this class are obtained through instances of **sim.android.SimManager**.There is an example of use at [https://github.com/Grasia/sample-ami-development/tree/master/sample-android-devices/microphoneapp](https://github.com/Grasia/sample-ami-development/tree/master/sample-android-devices/microphoneapp), but readers are invited to download the full example to prevent compilation mistakes.  
 
-{% highlight java %}
+{% highlight java linenos %}
 ...
 class RMSAudioRunnableTask implements Runnable {
         @Override
